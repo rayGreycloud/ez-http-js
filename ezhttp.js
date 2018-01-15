@@ -38,3 +38,17 @@ ezHTTP.prototype.put = function (url, data, callback) {
 }
 
 // DELETE
+ezHTTP.prototype.delete = function (url, callback) {
+  this.http.open('DELETE', url, true);
+  
+  this.http.onload = () => {
+    if (this.http.status === 200) {
+      callback(null, 'Post deleted.');
+    } else {
+      callback('Error: ' + this.http.status);
+    }
+  }
+
+  this.http.send();        
+}
+
