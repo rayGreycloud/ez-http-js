@@ -18,10 +18,16 @@ ezHTTP.prototype.get = function (url, callback) {
 }
 
 // POST 
+ezHTTP.prototype.post = function (url, data, callback) {
+  this.http.open('POST', url, true);
+  this.http.setRequestHeader('Content-type', 'application/json');
+  
+  this.http.onload = () => callback(null, this.http.responseText);  
 
+  this.http.send(JSON.stringify(data));    
+}
 
 // PUT 
-
 
 
 // DELETE
