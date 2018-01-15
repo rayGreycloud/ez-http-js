@@ -28,6 +28,13 @@ ezHTTP.prototype.post = function (url, data, callback) {
 }
 
 // PUT 
+ezHTTP.prototype.put = function (url, data, callback) {
+  this.http.open('PUT', url, true);
+  this.http.setRequestHeader('Content-type', 'application/json');
 
+  this.http.onload = () => callback(null, this.http.responseText);  
+
+  this.http.send(JSON.stringify(data));      
+}
 
 // DELETE
