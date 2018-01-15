@@ -19,15 +19,35 @@ const http = new ezHTTP();
 // });
 
 // POST request to add post to testing API  
+// const data = {
+//   userId: 500,
+// //  id: 200,
+//   title: "A Made-up Title",
+//   body: "Yada Yada Yada Bing Bing Bing\nYada Yada Yada Bing Bing Bing"
+// };
+// 
+// http.post(
+//   'https://jsonplaceholder.typicode.com/posts',
+//   data,
+//   function (err, response) {
+//     if (err) {
+//       console.log(err);  
+//     } else {
+//       console.log(response);    
+//     }
+//   }
+// );
+
+// PUT request to testing API to update post
 const data = {
-  userId: 500,
-//  id: 200,
+  userId: 1,
+  id: 1,
   title: "A Made-up Title",
   body: "Yada Yada Yada Bing Bing Bing\nYada Yada Yada Bing Bing Bing"
 };
 
-http.post(
-  'https://jsonplaceholder.typicode.com/posts',
+http.put(
+  `https://jsonplaceholder.typicode.com/posts/${data.id}`,
   data,
   function (err, response) {
     if (err) {
