@@ -59,7 +59,7 @@ class ezHTTP {
         method: 'DELETE'
       })
         .then(res => res.json())
-        .then(data => resolve('User deleted.'))
+        .then(() => resolve('User deleted.'))
         .catch(err => reject(err));
     });
   }
